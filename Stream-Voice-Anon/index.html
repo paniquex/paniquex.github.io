@@ -112,7 +112,7 @@
                 <div class="subsection">
                     <h3>Audio Quality Comparison</h3>
                     <p class="section-description">
-                        Comparison of our method with state-of-the-art streaming approaches.
+                        Comparison of our method with state-of-the-art streaming anonymization approaches. Samples are used from Dataset (CMU-ARCTIC corpus): http://www.festvox.org/cmu_arctic/ to compare with DarkStream.
                     </p>
 
                     <div class="audio-comparison-table">
@@ -237,76 +237,7 @@
                     </div>
                 </div>
 
-                <!-- 2B: Quantitative Metrics -->
-                <div class="subsection">
-                    <h3>Performance Metrics</h3>
-                    <p class="section-description">
-                        Evaluation on VoicePrivacy 2024 Challenge protocol. Higher EER and UAR are better (privacy and emotion), lower WER is better (intelligibility).
-                    </p>
-
-                    <div class="table-responsive">
-                        <table class="metrics-table">
-                            <thead>
-                                <tr>
-                                    <th>Model</th>
-                                    <th>Type</th>
-                                    <th>Latency</th>
-                                    <th>WER <span class="arrow">↓</span></th>
-                                    <th>UAR <span class="arrow">↑</span></th>
-                                    <th>EER (Lazy) <span class="arrow">↑</span></th>
-                                    <th>EER (Semi) <span class="arrow">↑</span></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="offline-row">
-                                    <td><em>EASY</em></td>
-                                    <td><em>Offline</em></td>
-                                    <td>-</td>
-                                    <td class="best">2.70</td>
-                                    <td class="best">63.81</td>
-                                    <td>-</td>
-                                    <td class="best">45.89</td>
-                                </tr>
-                                <tr>
-                                    <td>DarkStream (Mel+CL+KM)</td>
-                                    <td>Online</td>
-                                    <td>210ms</td>
-                                    <td>8.75<sub class="neutral">(0.0%)</sub></td>
-                                    <td>34.73<sub class="neutral">(0.0%)</sub></td>
-                                    <td>47.26<sub class="neutral">(0.0%)</sub></td>
-                                    <td>21.83<sub class="neutral">(0.0%)</sub></td>
-                                </tr>
-                                <tr>
-                                    <td>DarkStream (Wav+CL+KM)</td>
-                                    <td>Online</td>
-                                    <td>200ms</td>
-                                    <td>9.52<sub class="negative">(8.8%↑)</sub></td>
-                                    <td>34.49<sub class="negative">(0.7%↓)</sub></td>
-                                    <td>46.75<sub class="negative">(1.1%↓)</sub></td>
-                                    <td><strong>22.68</strong><sub class="positive">(3.9%↑)</sub></td>
-                                </tr>
-                                <tr class="highlight-row">
-                                    <td><strong>Stream-Voice-Anon emo (Ours)</strong></td>
-                                    <td><strong>Online</strong></td>
-                                    <td><strong>180ms</strong></td>
-                                    <td><strong>6.26</strong><sub class="positive">(28.5%↓)</sub></td>
-                                    <td><strong>48.54</strong><sub class="positive">(39.8%↑)</sub></td>
-                                    <td><strong>46.31</strong><sub class="negative">(2.0%↓)</sub></td>
-                                    <td>18.52<sub class="negative">(15.2%↓)</sub></td>
-                                </tr>
-                                <tr class="highlight-row">
-                                    <td><strong>Stream-Voice-Anon cross-ds (Ours)</strong></td>
-                                    <td><strong>Online</strong></td>
-                                    <td><strong>180ms</strong></td>
-                                    <td><strong>4.77</strong><sub class="positive">(45.5%↓)</sub></td>
-                                    <td><strong>42.06</strong><sub class="positive">(21.1%↑)</sub></td>
-                                    <td><strong>47.99</strong><sub class="positive">(1.5%↑)</sub></td>
-                                    <td>19.14<sub class="negative">(12.3%↓)</sub></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                
             </div>
         </section>
 
@@ -318,7 +249,7 @@
                 <div class="subsection">
                     <h3>Audio Comparison</h3>
                     <p class="section-description">
-                        Our system enables dynamic delay control for adjustable latency-quality trade-offs at inference time without retraining. We evaluate delays d=1 (130ms), d=2 (180ms), d=4 (240ms), and d=8 (440ms).
+                        Our system enables dynamic delay control for adjustable latency-quality trade-offs at inference time without retraining. We show examples with different delays: d=0 (90ms), d=1 (130ms), d=2 (180ms), and d=8 (440ms).
                     </p>
 
                     <div class="audio-comparison-table">
@@ -326,91 +257,51 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Source</th>
+                                        <th>Speaker</th>
                                         <th>Transcript</th>
                                         <th>Original</th>
+                                        <th>delay=0<br><span class="subtitle">(90ms)</span></th>
                                         <th>delay=1<br><span class="subtitle">(130ms)</span></th>
                                         <th>delay=2<br><span class="subtitle">(180ms)</span></th>
-                                        <th>delay=4<br><span class="subtitle">(240ms)</span></th>
                                         <th>delay=8<br><span class="subtitle">(440ms)</span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td data-label="Source">Source 1</td>
-                                        <td data-label="Transcript">"todo1"</td>
+                                        <td data-label="Source">BDL</td>
+                                        <td data-label="Transcript">"Not at this particular case Tom apologized Whittemore."</td>
                                         <td data-label="Original">
                                             <div class="audio-player">
                                                 <audio controls preload="metadata">
-                                                    <source src="audio/latency/source1_original.wav" type="audio/wav">
+                                                    <source src="audio/latency/arctic_a0002.wav" type="audio/wav">
+                                                </audio>
+                                            </div>
+                                        </td>
+                                        <td data-label="d=0 (90ms)">
+                                            <div class="audio-player">
+                                                <audio controls preload="metadata">
+                                                    <source src="audio/latency/arctic_a0002_delay0.wav" type="audio/wav">
                                                 </audio>
                                             </div>
                                         </td>
                                         <td data-label="d=1 (130ms)">
                                             <div class="audio-player">
                                                 <audio controls preload="metadata">
-                                                    <source src="audio/latency/source1_d1.wav" type="audio/wav">
+                                                    <source src="audio/latency/arctic_a0002_delay1.wav" type="audio/wav">
                                                 </audio>
                                             </div>
                                         </td>
                                         <td data-label="d=2 (180ms)">
                                             <div class="audio-player highlight">
                                                 <audio controls preload="metadata">
-                                                    <source src="audio/latency/source1_d2.wav" type="audio/wav">
-                                                </audio>
-                                            </div>
-                                        </td>
-                                        <td data-label="d=4 (240ms)">
-                                            <div class="audio-player">
-                                                <audio controls preload="metadata">
-                                                    <source src="audio/latency/source1_d4.wav" type="audio/wav">
+                                                    <source src="audio/latency/arctic_a0002_delay2.wav" type="audio/wav">
                                                 </audio>
                                             </div>
                                         </td>
                                         <td data-label="d=8 (440ms)">
                                             <div class="audio-player">
                                                 <audio controls preload="metadata">
-                                                    <source src="audio/latency/source1_d8.wav" type="audio/wav">
-                                                </audio>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td data-label="Source">Source 2</td>
-                                        <td data-label="Transcript">"todo2"</td>
-                                        <td data-label="Original">
-                                            <div class="audio-player">
-                                                <audio controls preload="metadata">
-                                                    <source src="audio/latency/source2_original.wav" type="audio/wav">
-                                                </audio>
-                                            </div>
-                                        </td>
-                                        <td data-label="d=1 (130ms)">
-                                            <div class="audio-player">
-                                                <audio controls preload="metadata">
-                                                    <source src="audio/latency/source2_d1.wav" type="audio/wav">
-                                                </audio>
-                                            </div>
-                                        </td>
-                                        <td data-label="d=2 (180ms)">
-                                            <div class="audio-player highlight">
-                                                <audio controls preload="metadata">
-                                                    <source src="audio/latency/source2_d2.wav" type="audio/wav">
-                                                </audio>
-                                            </div>
-                                        </td>
-                                        <td data-label="d=4 (240ms)">
-                                            <div class="audio-player">
-                                                <audio controls preload="metadata">
-                                                    <source src="audio/latency/source2_d4.wav" type="audio/wav">
-                                                </audio>
-                                            </div>
-                                        </td>
-                                        <td data-label="d=8 (440ms)">
-                                            <div class="audio-player">
-                                                <audio controls preload="metadata">
-                                                    <source src="audio/latency/source2_d8.wav" type="audio/wav">
+                                                    <source src="audio/latency/arctic_a0002_delay8.wav" type="audio/wav">
                                                 </audio>
                                             </div>
                                         </td>
